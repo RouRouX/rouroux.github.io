@@ -12,7 +12,7 @@
 
 <p>　　也许写此段代码目的是为了将其编译成如下css代码:</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.text</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.text</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<a id="more"></a>
 <p>　　但是现实并非如此，它会按照选择器嵌套原则将其编译成如下css代码:</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.text</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.text</span> <span class="selector-tag">a</span> <span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
