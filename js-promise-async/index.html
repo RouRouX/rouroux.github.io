@@ -82,7 +82,7 @@
 
 <p>惊喜的发现，<strong>链式继续走下去了</strong>！！输出如下（undefined是因为上一个then没有返回一个Promise）：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/RouRouX/store/img/20200629125344.png" alt="img"></p>
-<p>重点来了！敲黑板！！<strong>链式中的<code>catch</code>并不是终点！！catch完如果还有then还会继续往下走！\</strong>不信的话可以把第一个<code>catch</code>在最后面的那个例子后面再加几个<code>then</code>，你会发现*<em>并不会跳出链式执行*</em>。</p>
+<p>重点来了！敲黑板！！<strong>链式中的<code>catch</code>并不是终点！！catch完如果还有then还会继续往下走！不信的话可以把第一个<code>catch</code>在最后面的那个例子后面再加几个<code>then</code>，你会发现并不会跳出链式执行</strong>。</p>
 <p>如果顺序执行<code>setDelay，setDelay1,setDelaySecond</code>，按照上述的逻辑，流程图可以概括如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/RouRouX/store/img/20200629125354.png" alt="img"></p>
 <p><code>catch</code>只是捕获错误的一个链式表达，并不是break！</p>
