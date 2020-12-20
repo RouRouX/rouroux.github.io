@@ -32,8 +32,10 @@
 <p>如果是这种情况，可以在 <code>visibilitychange</code> 时通过读取 <code>document.visibilityState</code> 或 <code>document.hidden</code> 区分页面 tab 的激活状态，判断是否需要进行上报。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"visibilitychange"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">document</span>.visibilityState === <span class="string">'visible'</span>) &#123;</span><br><span class="line">    reportData();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">document</span>.visibilityState === <span class="string">'hidden'</span>) &#123;</span><br><span class="line">    reportData2();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// your code ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
+
 <h3 id="上报数据的方法"><a href="#上报数据的方法" class="headerlink" title="上报数据的方法"></a>上报数据的方法</h3><h4 id="1-直接发请求上报"><a href="#1-直接发请求上报" class="headerlink" title="1. 直接发请求上报"></a>1. 直接发请求上报</h4><p>我们可以直接将数据通过 ajax 发送到后端，以 <code>axios</code> 为例。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">axios</span><span class="selector-class">.post</span>(<span class="selector-tag">url</span>, <span class="selector-tag">data</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">axios.post(url, data);</span><br></pre></td></tr></table></figure>
 
 <p>但这种方法有一个问题，就是在页面卸载或刷新时进行上报的话，请求可能会在浏览器关闭或重新加载前还未发送至服务端就被浏览器 cancel 掉，导致数据上报失败。</p>
 <p>我们可以将 ajax 请求改为同步方法，这样就能保证请求一定能发送到服务端。由于 <code>fetch</code> 及 <code>axios</code> 都不支持同步请求，所以需要通过 <code>XMLHttpRequest</code> 发送同步请求。</p>
